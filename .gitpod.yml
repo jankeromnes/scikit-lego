@@ -1,3 +1,5 @@
+image:
+  file: .gitpod.Dockerfile
 tasks:
   - init: >
       pyenv local 3.7.2 &&
@@ -6,7 +8,7 @@ tasks:
       pip install .[dev] &&
       pip freeze
     command: >
-      time flake8
-      time pytest --disable-warnings --cov=sklego
-      time python -m doctest -v sklego/*.py
+      time flake8 &&
+      time pytest --disable-warnings --cov=sklego &&
+      time python -m doctest -v sklego/*.py &&
       time pytest --nbval-lax doc/*.ipynb
